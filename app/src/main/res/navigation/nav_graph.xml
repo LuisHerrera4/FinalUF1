@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/homeFragment">
+
+    <!-- Fragmento Principal -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.finaluf1.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+
+        <!-- Acción para ir al formulario de gasto -->
+        <action
+            android:id="@+id/action_homeFragment_to_gastoFormularioFragment"
+            app:destination="@id/gastoFormularioFragment" />
+    </fragment>
+
+    <!-- Fragmento de Formulario de Gasto -->
+    <fragment
+        android:id="@+id/gastoFormularioFragment"
+        android:name="com.example.finaluf1.GastoFormularioFragment"
+        android:label="Formulario"
+        tools:layout="@layout/fragment_gasto_formulario">
+
+        <!-- Acción para volver al home -->
+        <action
+            android:id="@+id/action_gastoFormularioFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+</navigation>
