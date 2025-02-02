@@ -4,14 +4,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GastoAdapter extends RecyclerView.Adapter<GastoAdapter.GastoViewHolder> {
+
     private List<Gasto> gastos = new ArrayList<>();
     private List<Gasto> gastosFiltrados = new ArrayList<>();
+    private static final DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
     @NonNull
     @Override
@@ -24,7 +29,7 @@ public class GastoAdapter extends RecyclerView.Adapter<GastoAdapter.GastoViewHol
     public void onBindViewHolder(@NonNull GastoViewHolder holder, int position) {
         Gasto gasto = gastosFiltrados.get(position);
         holder.tvNombre.setText(gasto.getNombre());
-        holder.tvCantidad.setText(String.format("$%.2f", gasto.getCantidad())); // Formato con 2 decimales
+        holder.tvCantidad.setText("$" + decimalFormat.format(gasto.getCantidad()));
         holder.tvFecha.setText(gasto.getFecha());
     }
 

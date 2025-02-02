@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -39,6 +40,14 @@ public class GastoFormularioFragment extends Fragment {
         Button btnGuardar = view.findViewById(R.id.btnGuardar);
 
         gastoViewModel = new ViewModelProvider(this).get(GastoViewModel.class);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                requireContext(),
+                R.array.categorias_gasto,
+                android.R.layout.simple_spinner_item
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategoria.setAdapter(adapter);
 
         btnGuardar.setOnClickListener(v -> guardarGasto());
 

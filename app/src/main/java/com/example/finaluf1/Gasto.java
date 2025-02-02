@@ -3,8 +3,6 @@ package com.example.finaluf1;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.text.DecimalFormat;
-
 @Entity(tableName = "gastos")
 public class Gasto {
     @PrimaryKey(autoGenerate = true)
@@ -35,7 +33,7 @@ public class Gasto {
     }
 
     public float getCantidad() {
-        return redondearDosDecimales(cantidad);
+        return cantidad;
     }
 
     public String getFecha() {
@@ -44,10 +42,5 @@ public class Gasto {
 
     public String getCategoria() {
         return categoria;
-    }
-
-    private float redondearDosDecimales(float valor) {
-        DecimalFormat df = new DecimalFormat("#.##");
-        return Float.parseFloat(df.format(valor));
     }
 }
