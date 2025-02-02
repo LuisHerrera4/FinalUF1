@@ -1,7 +1,6 @@
 package com.example.finaluf1;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
@@ -18,11 +17,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Inicializar ViewPager2 y TabLayout
         viewPager = findViewById(R.id.viewPager);
         TabLayout tabLayout = findViewById(R.id.tabLayout);
 
-        // Configurar adaptador del ViewPager2
         viewPagerAdapter = new ViewPagerAdapter(this);
         viewPager.setAdapter(viewPagerAdapter);
 
@@ -42,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         }).attach();
     }
 
-    // Método para cambiar de página en el ViewPager2
     public void cambiarPagina(int posicion) {
         viewPager.setCurrentItem(posicion, true);
     }

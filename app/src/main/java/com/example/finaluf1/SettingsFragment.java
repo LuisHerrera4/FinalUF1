@@ -19,7 +19,6 @@ public class SettingsFragment extends Fragment {
     private static final String DARK_MODE_KEY = "dark_mode";
 
     public SettingsFragment() {
-        // Constructor vacío requerido
     }
 
     @Nullable

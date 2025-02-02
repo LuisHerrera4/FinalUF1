@@ -16,11 +16,11 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
-                return new HomeFragment(); // Página de inicio
+                return new HomeFragment();
             case 1:
-                return new GastoFormularioFragment(); // Página de formulario de gastos
+                return new GastoFormularioFragment();
             case 2:
-                return new SettingsFragment(); // Página de configuración
+                return new SettingsFragment();
             default:
                 return new HomeFragment();
         }
@@ -28,6 +28,6 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 3; // Número total de pestañas
+        return 3;
     }
 }

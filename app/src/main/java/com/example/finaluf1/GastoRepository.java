@@ -20,27 +20,22 @@ public class GastoRepository {
         allGastos = gastoDao.getAllGastos();
     }
 
-    // Obtener todos los gastos
     public LiveData<List<Gasto>> getAllGastos() {
         return allGastos;
     }
 
-    // Insertar un gasto
     public void insert(Gasto gasto) {
         executorService.execute(() -> gastoDao.insert(gasto));
     }
 
-    // Actualizar un gasto
     public void update(Gasto gasto) {
         executorService.execute(() -> gastoDao.update(gasto));
     }
 
-    // Eliminar un gasto
     public void delete(Gasto gasto) {
         executorService.execute(() -> gastoDao.delete(gasto));
     }
 
-    // Obtener un gasto por ID
     public LiveData<Gasto> getGastoById(int id) {
         return gastoDao.getGastoById(id);
     }

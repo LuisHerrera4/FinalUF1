@@ -26,7 +26,6 @@ public class GastoFormularioFragment extends Fragment {
     private GastoViewModel gastoViewModel;
 
     public GastoFormularioFragment() {
-        // Constructor vacío requerido
     }
 
     @Nullable
@@ -34,16 +33,13 @@ public class GastoFormularioFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gasto_formulario, container, false);
 
-        // Inicializar vistas
         etNombreGasto = view.findViewById(R.id.etNombreGasto);
         etCantidad = view.findViewById(R.id.etCantidad);
         spinnerCategoria = view.findViewById(R.id.spinnerCategoria);
         Button btnGuardar = view.findViewById(R.id.btnGuardar);
 
-        // Obtener el ViewModel
         gastoViewModel = new ViewModelProvider(this).get(GastoViewModel.class);
 
-        // Botón guardar
         btnGuardar.setOnClickListener(v -> guardarGasto());
 
         return view;
@@ -54,7 +50,6 @@ public class GastoFormularioFragment extends Fragment {
         String cantidadTexto = etCantidad.getText().toString().trim();
         String categoria = spinnerCategoria.getSelectedItem().toString();
 
-        // Validaciones
         if (TextUtils.isEmpty(nombre)) {
             Toast.makeText(getContext(), "Ingrese un nombre para el gasto", Toast.LENGTH_SHORT).show();
             return;
@@ -74,16 +69,13 @@ public class GastoFormularioFragment extends Fragment {
             return;
         }
 
-        // Obtener fecha actual
         String fechaActual = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
 
-        // Crear y guardar el nuevo gasto
         Gasto nuevoGasto = new Gasto(nombre, cantidad, fechaActual, categoria);
         gastoViewModel.insert(nuevoGasto);
 
         Toast.makeText(getContext(), "Gasto guardado exitosamente", Toast.LENGTH_SHORT).show();
 
-        // Limpiar los campos
         etNombreGasto.setText("");
         etCantidad.setText("");
         spinnerCategoria.setSelection(0);
